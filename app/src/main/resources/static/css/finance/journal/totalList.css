@@ -1,0 +1,139 @@
+/* =========================================================
+   총계정원장 전용 (공통 UI 토큰 상속)
+   ========================================================= */
+
+.page {
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* 상단 탭 (분개장과 동일) */
+.main-tab-group {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    color: var(--color-muted);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.menu-btn.active {
+    background-color: var(--color-mid);
+    color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(156, 120, 93, 0.25);
+}
+
+/* 메인 패널 */
+.journal-card {
+    width: 100%;
+    min-height: 780px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--color-panel);
+    border-radius: 12px;
+}
+
+/* 검색바 */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+#accountInput{
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid var(--color-border);
+}
+
+/* 테이블 (너비 통합 관리) */
+.list-container {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-white);
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.summary-table th {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.summary-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f2eeea;
+    font-size: 13px;
+    color: var(--color-text);
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 컬럼 설정 */
+.summary-table th:nth-child(1), .summary-table td:nth-child(1) { width: 15%; }
+.summary-table th:nth-child(2), .summary-table td:nth-child(2) { width: 25%; text-align: right; padding-right: 30px; font-weight: 700; }
+.summary-table th:nth-child(3), .summary-table td:nth-child(3) { width: 25%; text-align: right; padding-right: 30px; font-weight: 700; }
+.summary-table th:nth-child(4), .summary-table td:nth-child(4) { width: 35%; }
+
+
+/* 페이징 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.page-num {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-num.active {
+    background-color: #d8b49b;
+    color: white;
+    border-radius: 5px;
+}

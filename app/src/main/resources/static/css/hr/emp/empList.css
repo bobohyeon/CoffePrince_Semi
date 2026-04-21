@@ -1,0 +1,819 @@
+/* 직원관리 */
+
+/* 위 여백 */
+.emp-top-spacer {
+    height: 44px;
+    margin-bottom: 18px;
+}
+
+.emp-page .org-summary-area,
+.emp-page .org-table-card {
+    animation: empFadeUp 0.45s ease;
+}
+
+/* 요약 */
+.emp-page .org-summary-area {
+    margin-bottom: 18px;
+    gap: 16px;
+}
+
+.emp-page .summary-card {
+    width: 140px;
+    min-height: 92px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,250,245,0.84) 100%);
+    border: 1px solid rgba(217, 177, 137, 0.28);
+    box-shadow: 0 12px 24px rgba(92, 63, 42, 0.10);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.emp-page .summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(92, 63, 42, 0.14);
+}
+
+.emp-page .summary-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #7b6452;
+    margin-bottom: 10px;
+    letter-spacing: -0.1px;
+}
+
+.emp-page .summary-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-dark);
+    border-left: 4px solid var(--color-mid);
+    padding-left: 10px;
+    line-height: 1;
+}
+
+/* 목록 */
+.emp-page .org-table-card {
+    margin-top: 6px;
+    min-height: 420px;
+    padding: 18px 20px 20px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,252,248,0.88) 100%);
+    border: 1px solid rgba(217, 177, 137, 0.22);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.10);
+}
+
+.emp-page .org-toolbar {
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.emp-page .toolbar-right {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.emp-page .toolbar-right .form-select {
+    min-width: 92px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.95);
+}
+
+.emp-page .search-box {
+    min-width: 230px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(156, 120, 93, 0.22);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+}
+
+.emp-page .search-box input {
+    width: 170px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 10px 0 12px;
+    font-size: 12px;
+    color: var(--color-text);
+}
+
+.emp-page .search-box input::placeholder {
+    color: #9b8a7c;
+}
+
+.emp-page .org-bottom-area {
+    margin-top: 18px;
+    min-height: 34px;
+}
+
+/* 테이블 */
+.emp-table {
+    table-layout: fixed;
+    min-width: 980px;
+}
+
+.emp-table th:nth-child(1),
+.emp-table td:nth-child(1) { width: 60px; }
+
+.emp-table th:nth-child(2),
+.emp-table td:nth-child(2) { width: 120px; }
+
+.emp-table th:nth-child(3),
+.emp-table td:nth-child(3) { width: 110px; }
+
+.emp-table th:nth-child(4),
+.emp-table td:nth-child(4) { width: 100px; }
+
+.emp-table th:nth-child(5),
+.emp-table td:nth-child(5) { width: 220px; }
+
+.emp-table th:nth-child(6),
+.emp-table td:nth-child(6) { width: 160px; }
+
+.emp-table th:nth-child(7),
+.emp-table td:nth-child(7) { width: 120px; }
+
+.emp-table thead th {
+    background: linear-gradient(180deg, #d8b18b 0%, #cfaa83 100%);
+    color: #4b3728;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 14px 10px;
+}
+
+.emp-table tbody tr {
+    transition: transform 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.emp-table tbody tr:hover {
+    background: rgba(255,255,255,0.62);
+    transform: translateY(-1px);
+}
+
+.emp-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.emp-table .empty-row td {
+    height: 120px;
+    text-align: center;
+    color: #9a8b7e;
+    font-size: 13px;
+}
+
+/* 상태 */
+.emp-page .status,
+#emp-modal-wrap .status,
+#emp-edit-modal-wrap .status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.72);
+    color: #4b3728;
+}
+
+.emp-page .status::before,
+#emp-modal-wrap .status::before,
+#emp-edit-modal-wrap .status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.emp-page .status.working,
+#emp-modal-wrap .status.working,
+#emp-edit-modal-wrap .status.working {
+    background: rgba(34, 197, 94, 0.09);
+    border-color: rgba(34, 197, 94, 0.22);
+    color: #237344;
+}
+.emp-page .status.working::before,
+#emp-modal-wrap .status.working::before,
+#emp-edit-modal-wrap .status.working::before {
+    background-color: #22c55e;
+}
+
+.emp-page .status.trip,
+#emp-modal-wrap .status.trip,
+#emp-edit-modal-wrap .status.trip {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.20);
+    color: #2459b8;
+}
+.emp-page .status.trip::before,
+#emp-modal-wrap .status.trip::before,
+#emp-edit-modal-wrap .status.trip::before {
+    background-color: #3b82f6;
+}
+
+.emp-page .status.training,
+#emp-modal-wrap .status.training,
+#emp-edit-modal-wrap .status.training {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.20);
+    color: #6c46c9;
+}
+.emp-page .status.training::before,
+#emp-modal-wrap .status.training::before,
+#emp-edit-modal-wrap .status.training::before {
+    background-color: #8b5cf6;
+}
+
+.emp-page .status.leave,
+#emp-modal-wrap .status.leave,
+#emp-edit-modal-wrap .status.leave {
+    background: rgba(250, 204, 21, 0.10);
+    border-color: rgba(250, 204, 21, 0.24);
+    color: #8a6a10;
+}
+.emp-page .status.leave::before,
+#emp-modal-wrap .status.leave::before,
+#emp-edit-modal-wrap .status.leave::before {
+    background-color: #facc15;
+}
+
+.emp-page .status.outside,
+#emp-modal-wrap .status.outside,
+#emp-edit-modal-wrap .status.outside {
+    background: rgba(249, 115, 22, 0.09);
+    border-color: rgba(249, 115, 22, 0.22);
+    color: #b85c17;
+}
+.emp-page .status.outside::before,
+#emp-modal-wrap .status.outside::before,
+#emp-edit-modal-wrap .status.outside::before {
+    background-color: #f97316;
+}
+
+.emp-page .status.remote,
+#emp-modal-wrap .status.remote,
+#emp-edit-modal-wrap .status.remote {
+    background: rgba(14, 165, 233, 0.09);
+    border-color: rgba(14, 165, 233, 0.22);
+    color: #176a92;
+}
+.emp-page .status.remote::before,
+#emp-modal-wrap .status.remote::before,
+#emp-edit-modal-wrap .status.remote::before {
+    background-color: #0ea5e9;
+}
+
+.emp-page .status.retired,
+#emp-modal-wrap .status.retired,
+#emp-edit-modal-wrap .status.retired {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.22);
+    color: #b53b3b;
+}
+.emp-page .status.retired::before,
+#emp-modal-wrap .status.retired::before,
+#emp-edit-modal-wrap .status.retired::before {
+    background-color: #ef4444;
+}
+
+.emp-page .status.unknown,
+#emp-modal-wrap .status.unknown,
+#emp-edit-modal-wrap .status.unknown {
+    background: rgba(156, 163, 175, 0.12);
+    border-color: rgba(156, 163, 175, 0.24);
+    color: #5f6773;
+}
+.emp-page .status.unknown::before,
+#emp-modal-wrap .status.unknown::before,
+#emp-edit-modal-wrap .status.unknown::before {
+    background-color: #9ca3af;
+}
+
+/* 모달 공통 */
+#emp-modal-wrap .emp-detail-modal,
+#emp-edit-modal-wrap .emp-edit-modal {
+    width: 980px;
+    max-width: 92%;
+    border-radius: 18px;
+    transform-origin: center center;
+    animation: empModalPop 0.34s cubic-bezier(.2,.8,.2,1);
+}
+
+#emp-modal-wrap .emp-detail-body,
+#emp-edit-modal-wrap .emp-edit-body {
+    padding: 18px 22px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#emp-modal-wrap .org-modal-header,
+#emp-edit-modal-wrap .org-modal-header {
+    padding: 18px 22px;
+}
+
+#emp-modal-wrap .org-modal-header h2,
+#emp-edit-modal-wrap .org-modal-header h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-dark);
+    letter-spacing: -0.2px;
+}
+
+#emp-modal-wrap .org-modal-footer,
+#emp-edit-modal-wrap .org-modal-footer {
+    padding: 14px 22px 20px;
+    gap: 8px;
+}
+
+/* 공통 섹션 */
+#emp-modal-wrap .detail-section,
+#emp-edit-modal-wrap .detail-section {
+    border: 1px solid #efe8e0;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,250,245,0.95) 100%);
+    padding: 16px;
+    box-shadow: 0 10px 24px rgba(92, 63, 42, 0.05);
+}
+
+#emp-modal-wrap .detail-section-title,
+#emp-edit-modal-wrap .detail-section-title {
+    margin: 0 0 14px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #5a3d2b;
+    letter-spacing: -0.1px;
+}
+
+/* 상세 */
+#emp-modal-wrap {
+    backdrop-filter: blur(6px);
+}
+
+#emp-modal-wrap .emp-detail-modal {
+    width: 920px;
+    max-width: 92%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f7f4f1;
+    border: 1px solid #e5d8cb;
+    box-shadow: 0 24px 48px rgba(42, 29, 20, 0.18);
+}
+
+#emp-modal-wrap .org-modal-header {
+    padding: 22px 26px 16px;
+    background: #f7f4f1;
+    border-bottom: 1px solid #e7dbcf;
+}
+
+#emp-modal-wrap .org-modal-header::after {
+    content: none;
+}
+
+#emp-modal-wrap .org-modal-header h2 {
+    font-size: 19px;
+    font-weight: 900;
+    color: #5a3d2b;
+    letter-spacing: -0.2px;
+}
+
+#emp-modal-wrap .emp-detail-body {
+    padding: 18px 22px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-height: 78vh;
+    overflow-y: auto;
+    background: #f7f4f1;
+}
+
+#emp-modal-wrap .org-modal-footer {
+    padding: 14px 22px 20px;
+    border-top: 1px solid #e7dbcf;
+    background: #f7f4f1;
+}
+
+#emp-modal-wrap .detail-section {
+    padding: 16px 18px;
+    border: 1px solid #e5d7ca;
+    border-radius: 18px;
+    background: #fbf9f7;
+    box-shadow: none;
+}
+
+#emp-modal-wrap .detail-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #5a3d2b;
+    letter-spacing: -0.1px;
+}
+
+#emp-modal-wrap .detail-section-title::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7b5a43;
+    box-shadow: 0 0 0 4px rgba(123, 90, 67, 0.12);
+}
+
+#emp-modal-wrap .detail-profile-area {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+#emp-modal-wrap .detail-profile-img {
+    width: 110px;
+    min-width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#emp-modal-wrap .detail-profile-img img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e3d4c6;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(92, 63, 42, 0.10);
+}
+
+#emp-modal-wrap .detail-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 34px;
+    align-items: start;
+}
+
+#emp-modal-wrap .detail-info-grid > .detail-row,
+#emp-modal-wrap .detail-info-grid > .detail-row.detail-row-address {
+    min-height: auto;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 8px;
+    align-items: start;
+    grid-column: auto !important;
+}
+
+#emp-modal-wrap .detail-info-grid > .detail-row:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+#emp-modal-wrap .detail-info-grid > .detail-row:nth-child(7) {
+    grid-column: 1 / span 2 !important;
+}
+
+#emp-modal-wrap .detail-info-grid > .detail-row.detail-row-address {
+    grid-column: 1 / span 2 !important;
+}
+
+#emp-modal-wrap .detail-label {
+    width: auto;
+    min-width: auto;
+    font-size: 12px;
+    font-weight: 800;
+    color: #8a705c;
+    line-height: 1.7;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+#emp-modal-wrap .detail-value {
+    width: 100%;
+    font-size: 13px;
+    font-weight: 700;
+    color: #49362a;
+    line-height: 1.7;
+    word-break: break-word;
+}
+
+#emp-modal-wrap #modal-emp-name {
+    font-size: 15px;
+    font-weight: 900;
+}
+
+#emp-modal-wrap #modal-emp-status.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    padding: 4px 10px;
+    min-height: 28px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+#emp-modal-wrap .salary-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+#emp-modal-wrap .salary-info-grid .detail-row {
+    min-height: auto;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #eadccf;
+    background: #f8f4ef;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    justify-content: center;
+    box-shadow: none;
+}
+
+#emp-modal-wrap .salary-info-grid .detail-row:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#emp-modal-wrap .salary-info-grid .detail-label {
+    font-size: 12px;
+    color: #8a705c;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+#emp-modal-wrap .salary-info-grid .detail-value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #3d2b20;
+    line-height: 1.2;
+}
+
+#emp-modal-wrap .emp-history-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px #eee3d7;
+}
+
+#emp-modal-wrap .emp-history-table thead th {
+    padding: 13px 12px;
+    background: #d5ad86;
+    color: #4b3728;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+#emp-modal-wrap .emp-history-table tbody td {
+    padding: 13px 12px;
+    font-size: 12px;
+    color: #4b3728;
+    border-bottom: 1px solid #f1e7dd;
+    background: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#emp-modal-wrap .emp-history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#emp-modal-wrap .emp-history-table tbody tr:hover td {
+    background: #fcf8f4;
+}
+
+/* 수정 */
+.edit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+}
+
+.edit-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.edit-row label {
+    font-size: 13px;
+    font-weight: 800;
+    color: #5b4635;
+}
+
+.edit-row input,
+.edit-row select {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #dac9b8;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #4b3728;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.edit-row input:focus,
+.edit-row select:focus {
+    border-color: #b88d68;
+    box-shadow: 0 0 0 4px rgba(184, 141, 104, 0.12);
+    outline: none;
+}
+
+.edit-row input[readonly] {
+    background: #f4f2ef;
+    color: #7a6a5e;
+    cursor: not-allowed;
+}
+
+.history-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.emp-history-edit-table {
+    table-layout: fixed;
+}
+
+.emp-history-edit-table th:nth-child(1),
+.emp-history-edit-table td:nth-child(1) { width: 160px; }
+
+.emp-history-edit-table th:nth-child(2),
+.emp-history-edit-table td:nth-child(2) { width: 180px; }
+
+.emp-history-edit-table th:nth-child(3),
+.emp-history-edit-table td:nth-child(3) { width: auto; }
+
+.emp-history-edit-table input,
+.emp-history-edit-table select {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #d8c8b8;
+    border-radius: 8px;
+    padding: 0 10px;
+    font-size: 12px;
+    background: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.emp-history-edit-table input:focus,
+.emp-history-edit-table select:focus {
+    border-color: #b88d68;
+    box-shadow: 0 0 0 4px rgba(184, 141, 104, 0.12);
+    outline: none;
+}
+
+/* 페이지네이션 */
+.emp-page .pagination {
+    gap: 8px;
+}
+
+.emp-page .page-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    transition: transform 0.16s ease, background-color 0.16s ease;
+}
+
+.emp-page .page-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* 반응형 */
+@media (max-width: 1400px) {
+    .emp-page .org-table-card {
+        overflow-x: auto;
+    }
+
+    .emp-table {
+        min-width: 980px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .detail-profile-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-info-grid,
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-row-address {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .emp-top-spacer {
+        height: 20px;
+        margin-bottom: 14px;
+    }
+
+    .emp-page .toolbar-right {
+        justify-content: flex-start;
+    }
+
+    .emp-page .search-box {
+        min-width: 100%;
+    }
+
+    .emp-page .search-box input {
+        width: 100%;
+    }
+
+    #emp-modal-wrap .emp-detail-modal,
+    #emp-edit-modal-wrap .emp-edit-modal {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 860px) {
+    #emp-modal-wrap .detail-profile-area {
+        grid-template-columns: 1fr;
+    }
+
+    #emp-modal-wrap .detail-profile-img {
+        margin: 0 auto;
+    }
+
+    #emp-modal-wrap .detail-info-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    #emp-modal-wrap .detail-info-grid > .detail-row,
+    #emp-modal-wrap .detail-info-grid > .detail-row:nth-child(7),
+    #emp-modal-wrap .detail-info-grid > .detail-row.detail-row-address {
+        grid-column: auto !important;
+    }
+
+    #emp-modal-wrap .salary-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 애니메이션 */
+@keyframes empFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes empModalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.97) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

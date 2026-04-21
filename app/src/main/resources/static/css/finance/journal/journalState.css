@@ -1,0 +1,167 @@
+/* =========================================================
+   재무제표 (Financial Statements) - 공통 UI 시스템 통합
+   ========================================================= */
+
+.page {
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* 상단 탭 (탭 그룹 디자인 통일) */
+.main-tab-group {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    color: var(--color-muted);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.menu-btn.active {
+    background-color: var(--color-mid);
+    color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(156, 120, 93, 0.25);
+}
+
+/* 메인 패널 스타일 */
+.journal-card {
+    width: 100%;
+    min-height: 780px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--color-panel);
+    border-radius: 12px;
+}
+
+/* 날짜 선택 검색바 */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+/* input 스타일 통일 (date 타입도 부드럽게) */
+.month-input {
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    outline: none;
+    color: var(--color-text);
+    font-family: inherit;
+}
+
+/* 리스트 컨테이너 */
+.list-container {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-white);
+}
+
+/* 테이블 디자인 */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.summary-table th {
+    background-color: var(--color-light); /* 헤더 배경색 통일 */
+    color: var(--color-dark);
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.summary-table td {
+    padding: 14px;
+    border-bottom: 1px solid #f2eeea;
+    font-size: 14px;
+    color: var(--color-text);
+    vertical-align: middle;
+}
+
+/* ---------------------------------------------------------
+   재무제표 전용 컬럼 설정 (계정과목 / 금액)
+   --------------------------------------------------------- */
+
+/* [1] 계정과목 컬럼: 왼쪽 정렬 및 강조 */
+.summary-table th:nth-child(1),
+.summary-table td:nth-child(1) {
+    width: 60%;
+    text-align: left;
+    padding-left: 30px; /* 계정명 들여쓰기로 가독성 확보 */
+}
+
+/* JS에서 추가한 들여쓰기 클래스 */
+.summary-table td.indent {
+    padding-left: 60px; /* 소분류(Sub)보다 더 안쪽으로 들여쓰기 */
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* 소분류(Sub) 행 강조 */
+.sub-category-row td {
+    background-color: #fafafa;
+    font-weight: 700 !important;
+    color: var(--color-mid) !important;
+    padding-left: 30px !important;
+}
+
+/* [2] 금액 컬럼: 오른쪽 정렬 및 굵게 */
+.summary-table th:nth-child(2),
+.summary-table td:nth-child(2) {
+    width: 40%;
+    text-align: right;
+    padding-right: 70px;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.summary-table tr:nth-last-child(3) td {
+    border-top: 3px solid var(--color-mid) !important; /* 자산총계와 동일한 느낌의 굵은 선 */
+}
+
+/* [추가] 재무제표 하단 합계행(Total)이 올 경우를 위한 스타일 */
+.summary-table tr.total-row td,
+.summary-table tr:last-child td {
+    background-color: #fdfaf8 !important;
+    border-top: 2px solid var(--color-mid);
+    border-bottom: 2px solid var(--color-mid);
+    font-size: 16px;
+    font-weight: 800;
+    color: #a10808 !important;
+}
+
+/* 스크롤바 커스텀 */
+.list-container::-webkit-scrollbar { width: 8px; }
+.list-container::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 10px; }

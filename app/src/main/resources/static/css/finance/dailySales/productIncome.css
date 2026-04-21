@@ -1,0 +1,125 @@
+/* 1. 전체 레이아웃 정돈 */
+.page {
+    padding: 20px 40px;
+    border-radius: 20px;
+    background-color: var(--color-white); /* 배경색 제거, 깔끔한 화이트 */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 800px;
+}
+
+/* 👤 유저 프로필 (위치 하향 조정) */
+.user-profile {
+    position: absolute;
+    top: 45px; /* 25px -> 45px로 더 내림 */
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-img-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-mid);
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 🔴 로그아웃 버튼 디자인 */
+.logout-btn {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #fcfcfc;
+    color: var(--color-dark);
+    border-color: var(--color-mid);
+}
+
+/* 📅 검색바 (다른 페이지와 통일감 있게 축소) */
+.header-container {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.search-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px; /* 패딩 축소 */
+    border-bottom: 2px solid var(--color-mid); /* 선으로만 포인트 */
+}
+
+.search-wrapper label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-mid);
+}
+
+.month-input {
+    border: none;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-dark);
+    outline: none;
+    cursor: pointer;
+}
+
+/* 📊 차트 그리드 (배경색/그림자 제거, 선으로 구분) */
+.sales-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 30px; /* 위아래 간격을 좀 더 줌 */
+}
+
+.chart-item {
+    background: none; /* 카드 배경 제거 */
+    padding: 10px;
+    border: none;
+    box-shadow: none; /* 그림자 제거 */
+}
+
+.chart-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 제목 옆 포인트 바 */
+.chart-item h3::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background-color: var(--color-mid);
+    border-radius: 10px;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px; /* 크기 살짝 조정 */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f0f0f0; /* 차트 영역만 아주 연한 선으로 구분 */
+    border-radius: 12px;
+}

@@ -1,0 +1,289 @@
+/* =========================================================
+   기본 초기화 및 전체 레이아웃
+   ========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #c8c1b4; /* 기존 배경색 유지 */
+    font-family: 'Pretendard', Arial, sans-serif;
+}
+
+.page {
+    margin-left: 100px; /* 사이드바 여백 */
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 1200px;
+}
+
+/* =========================================================
+   계정과목 관리 (재무제표 공통 UI 스타일 적용)
+   ========================================================= */
+
+.title {
+
+    font-size: 24px;
+    font-weight: bold;
+    color: #6a4328;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    padding-left: 10px;
+
+}
+
+/* 메인 패널 (재무제표 .journal-card 스타일 동일 적용) */
+.content-box {
+    width: 100%;
+    min-height: 780px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px; /* 좌우 영역 간격 */
+    background: var(--color-panel);
+    border-radius: 12px;
+}
+
+.account-area, .register-area {
+    flex: 1; /* 너비를 5:5로 동일하게 */
+}
+
+/* =========================================================
+   좌우 공통 헤더 스타일 (재무제표 테이블 헤더 느낌)
+   ========================================================= */
+.table-header, .form-title {
+    /* background-color: var(--color-light); 
+    color: var(--color-dark);
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: 800;
+    border: 1px solid var(--color-border); */
+    border-bottom: 2px solid var(--color-border);
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+
+    background-color: var(--color-light); /* 사진과 동일한 베이지브라운 */
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    height: 45px; /* 양쪽 헤더 높이 완벽 일치 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 텍스트 가운데 정렬 */
+    border: 1px solid #dcbfa6;
+}
+
+.table-header {
+    border-radius: 8px 8px 0 0;
+}
+
+/* =========================================================
+   왼쪽: 계정과목 목록 영역
+   ========================================================= */
+.account-area {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.account-wrapper {
+    /* display: flex;
+    flex: 1;
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--color-white); */
+    overflow: hidden;
+
+    height: 450px; /* 고정 높이 */
+    display: flex;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+}
+
+.form-box {
+    /* 오른쪽 폼 박스는 [헤더 45px + 래퍼 450px] = 495px로 맞춰야 왼쪽과 딱 맞습니다 */
+    height: 495px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 💡 튀어나오는 현상 해결 핵심 (박스 밖으로 나가는 요소 숨김) */
+}
+
+.account-main {
+    width: 40%;
+    border-right: 1px solid var(--color-border);
+    background-color: #fafafa;
+    overflow-y: auto;
+}
+
+/* 하위 계정 리스트 행 스타일 */
+.sub-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f2eeea;
+    transition: all 0.2s;
+}
+
+/* 💡 비활성화(N) 상태일 때: 회색 글자 + 취소선 */
+.sub-row.disabled-row {
+    color: #bbb !important; /* 연한 회색 */
+    text-decoration: line-through; /* 취소선 */
+    background-color: #fcfcfc; /* 선택사항: 배경도 살짝 흐리게 */
+}
+
+/* 체크박스와 텍스트 정렬 */
+.sub-row input[type="checkbox"] {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+.sub-row span {
+    font-size: 14px;
+}
+
+.main-row {
+    text-align: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f2eeea;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.main-row:hover {
+    background-color: #fdfaf8;
+    color: var(--color-mid);
+    font-weight: 700;
+    border-left: 4px solid #b28a6d;
+}
+
+.main-row.active {
+    background-color: #fdfaf8;
+    color: var(--color-mid);
+    font-weight: 800;
+    border-left: 4px solid var(--color-mid);
+}
+
+.account-sub {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sub-placeholder {
+    color: var(--color-muted);
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+.account-footer {
+    margin-top: 15px;
+    text-align: right;
+}
+
+/* 상태변경 버튼 (재무제표 .menu-btn 기반) */
+.delete-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-white);
+    color: var(--color-muted);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #f8f9fa;
+}
+
+/* =========================================================
+   오른쪽: 신규 계정 등록 영역
+   ========================================================= */
+/* ================== 오른쪽 계정 등록 영역 ================== */
+.register-area {
+    flex: 1;
+}
+
+.form-box {
+    height: 495px; /* 왼쪽(헤더 45px + 바디 450px)과 완벽하게 똑같은 높이 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    padding: 0; /* 💡 핵심: 패딩을 0으로 없애야 제목이 박스 끝까지 꽉 찹니다 */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.form-title {
+    background-color: var(--color-light); /* 왼쪽 헤더와 똑같은 베이지색 */
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    height: 45px; /* 왼쪽 헤더와 완벽히 같은 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border-bottom: 1px solid #ccc; /* 제목 아래 선 */
+}
+
+form {
+    padding: 40px 40px 0 40px; /* 깎아낸 패딩을 폼 내부에 다시 적용 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-row input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.register-footer {
+    padding: 0 40px 30px 40px; /* 하단 여백 */
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto; /* 버튼을 맨 아래로 밀어내기 */
+}
+
+/* 추가하기 버튼 */
+.add-btn {
+    background-color: #b28a6d; /* 진한 베이지 포인트 */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}

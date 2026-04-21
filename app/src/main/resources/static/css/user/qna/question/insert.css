@@ -1,0 +1,192 @@
+/* ===== 전체 레이아웃 ===== */
+.qna-wrap {
+    padding: 40px;
+    background-color: #eee9e4;
+    min-height: calc(100vh - 60px);
+    position: relative; /* 🔥 상단바 기준 */
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* ===== 상단 사용자 바 ===== */
+.top-user-bar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(255,255,255,0.95);
+    padding: 6px 12px;
+    border-radius: 30px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.top-profile-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.top-user-name {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+.top-user-bar button {
+    border: none;
+    background: #8c7361;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.top-user-bar button:hover {
+    background: #6d5a47;
+}
+
+/* ===== 제목 ===== */
+.qna-title-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ===== 박스 ===== */
+.qna-form-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* 입력 그룹 */
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap; /* 🔥 핵심 */
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 16px;
+    border: 1px solid #c8a992;
+    border-radius: 25px;
+    outline: none;
+}
+
+/* 제목 */
+.title-group {
+    flex: 2;
+}
+
+.title-group input {
+    width: 100%;
+}
+
+/* 카테고리 */
+.type-group {
+    flex: 1;
+}
+
+.type-group select {
+    width: 100%;
+}
+
+/* 🔥 비밀글 */
+.secret-group {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    background-color: #fcfaf9;
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: 1.5px dashed #c8a992;
+}
+
+.secret-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.secret-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8c7361;
+}
+
+/* 내용 */
+.content-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.content-group textarea {
+    width: 100%;
+    height: 350px;
+    padding: 20px;
+    border: 1px solid #c8a992;
+    border-radius: 20px;
+    resize: none;
+    outline: none;
+}
+
+/* ===================== */
+/* 버튼 */
+/* ===================== */
+
+.btn-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btn-custom {
+    background-color: #8c7361;
+    color: #fff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #6d5a47;
+}
+
+.btn-danger {
+    background-color: #a55d5d;
+}
+
+.btn-success {
+    background-color: #7a6a5e;
+}

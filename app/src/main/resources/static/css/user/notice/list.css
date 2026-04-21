@@ -1,0 +1,275 @@
+/* 전체 배경 및 레이아웃 */
+.page-shell {
+    background: linear-gradient(to right, #cbbba0, #d6c7aa); /* 기획안 배경색 */
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.notice-wrap {
+    background-color: #f3f1ee;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* 테이블 컨테이너 */
+.table-container {
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 테이블 정렬 핵심 설정 */
+.notice-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* 헤더와 바디의 라인을 강제로 맞춤 */
+}
+
+.notice-table th,
+.notice-table td {
+    padding: 15px 5px;
+    text-align: center;
+    vertical-align: middle;
+    word-break: break-all;
+    border-bottom: 1px solid #eee;
+}
+
+.notice-table th {
+    border-bottom: 2px solid #ccc;
+    font-weight: 600;
+    color: #333;
+}
+
+/* 제목 열 왼쪽 정렬 */
+.text-left {
+    text-align: left !important;
+    padding-left: 20px !important;
+}
+
+/* 컬럼별 너비 지정 (JSP의 width와 일치) */
+.notice-table th:nth-child(1) { width: 8%; }
+.notice-table th:nth-child(2) { width: 12%; }
+.notice-table th:nth-child(3) { width: 45%; }
+.notice-table th:nth-child(4) { width: 15%; }
+.notice-table th:nth-child(5) { width: 12%; }
+.notice-table th:nth-child(6) { width: 8%; }
+
+/* 페이징 및 하단 메뉴 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 25px 0;
+}
+
+.pagination button {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagination button.active {
+    background: #c9a27e;
+    color: white;
+    border: none;
+}
+
+.bottom-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search-form input {
+    width: 320px;
+    height: 35px;
+    border: 1px solid #8b735b;
+    border-radius: 20px;
+    padding: 0 15px;
+}
+
+.write-btn {
+    position: absolute;
+    right: 0;
+    background: #8b735b;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+/* 테이블 행 호버 효과 */
+#notice-tbody tr {
+    transition: background-color 0.2s ease; /* 부드러운 색상 전환 */
+    cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
+}
+
+#notice-tbody tr:hover {
+    background-color: #f8f5f2; /* 커피 프린스 테마에 어울리는 연한 베이지/그레이 */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* 약간의 입체감 (선택사항) */
+}
+
+/* 제목 셀에 대한 별도 강조 (선택사항) */
+#notice-tbody tr:hover .text-left {
+    color: #8c7361; /* 호버 시 제목 텍스트 색상 변경 */
+    font-weight: 500;
+}
+/* TOP 공지사항 전용 스타일 */
+.notice-row.is-top {
+    background-color: #fdfaf4 !important; /* 아주 연한 오렌지/베이지빛 */
+    font-weight: 600;
+}
+
+/* TOP 공지 왼쪽 포인트 강조 선 */
+.notice-row.is-top td:first-child {
+    border-left: 4px solid #8c7361;
+}
+
+/* TOP 배지 스타일 */
+.top-badge {
+    background: #8c7361;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px; /* 둥근 모양 */
+    font-size: 11px;
+    font-weight: bold;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 불꽃 아이콘 스타일 */
+.top-icon {
+    font-size: 1.1em;
+    filter: drop-shadow(0 0 2px rgba(255, 69, 0, 0.3));
+}
+
+/* TOP 행 호버 시 색상 (일반 행보다 약간 더 진하게) */
+.notice-row.is-top:hover {
+    background-color: #f7f1e9 !important;
+}
+/* 상단 유저 바 */
+.top-user-bar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: rgba(255, 255, 255, 0.85);
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    z-index: 20;
+}
+
+/* 프로필 이미지 (핵심) */
+.top-profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;        /* 동그랗게 */
+    object-fit: cover;         /* 찌그러짐 방지 */
+    cursor: pointer;
+    border: 2px solid #71513d;
+}
+
+/* 이름 */
+.top-user-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 버튼 */
+.top-user-bar button {
+    border: none;
+    background: #71513d;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.top-user-bar button:hover {
+    background: #5d4037;
+}
+/* 검색 영역 */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 셀렉트 */
+.search-select {
+    padding: 10px 15px;
+    border: 1px solid #8b735b;
+    border-radius: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* 입력창 */
+.search-input {
+    width: 320px;
+    padding: 10px 20px;
+    border: 1px solid #8b735b;
+    border-radius: 30px;
+    outline: none;
+}
+
+/* 검색 버튼 */
+.btn-search {
+    background-color: #8b735b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background-color: #5d4037;
+}
+
+/* 공통 버튼 색 */
+:root {
+    --main-brown: #71513d;
+    --main-brown-hover: #5d4037;
+}
+
+/* 페이지 내 버튼들 통일 */
+.pagination button,
+.btn-search,
+.write-btn,
+.top-user-bar button {
+    background-color: var(--main-brown);
+    color: white;
+    border: none;
+}
+
+/* hover 통일 */
+.pagination button:hover,
+.btn-search:hover,
+.write-btn:hover,
+.top-user-bar button:hover {
+    background-color: var(--main-brown-hover);
+}
+
+/* active 버튼도 맞춤 */
+.pagination button.active {
+    background: var(--main-brown);
+}

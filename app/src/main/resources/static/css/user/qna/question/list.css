@@ -1,0 +1,247 @@
+:root {
+    --main-brown: #71513d;
+    --main-brown-hover: #5d4037;
+}
+
+
+.qna-list-wrap {
+    padding: 40px;
+    background-color: #eee9e4;
+    min-height: calc(100vh - 60px);
+    position: relative;
+}
+
+.qna-header-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.qna-table-container {
+    background-color: #fff;
+    padding: 30px;
+    min-height: 500px;
+    position: relative;
+}
+
+.qna-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.qna-table th {
+    padding: 15px 0;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.qna-table td {
+    padding: 20px 0;
+    border-bottom: 1px solid #f9f9f9;
+    cursor: pointer;
+}
+
+.title-cell {
+    text-align: left;
+    padding-left: 20px !important;
+}
+
+/* 답변 아이콘 스타일 */
+.answer-tag {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 페이징 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.page-num {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-num.active {
+    background-color: #d8b49b;
+    color: white;
+    border-radius: 5px;
+}
+
+/* 하단 푸터 (검색 & 버튼) */
+.list-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-label {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.search-input {
+    width: 350px;
+    padding: 10px 20px;
+    border: 1px solid #c8a992;
+    border-radius: 30px;
+    outline: none;
+}
+
+.btn-search {
+    background-color: #8c7361;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-write {
+    position: absolute;
+    right: 0;
+    background-color: #8c7361;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.search-select {
+    padding: 10px 15px;
+    border: 1px solid #c8a992;
+    border-radius: 30px; /* 입력창과 통일감 */
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 요소 간 간격 */
+}
+/* 테이블 행(tr) 호버 효과 추가 */
+.qna-table tbody tr {
+    transition: background-color 0.2s ease; /* 색상이 부드럽게 바뀌도록 설정 */
+}
+
+.qna-table tbody tr:hover {
+    background-color: #f7f3f0; /* 커피 프린스 테마에 어울리는 연한 베이지색 */
+}
+
+/* 호버 시 제목 텍스트에 변화를 주고 싶다면 추가 */
+.qna-table tbody tr:hover .title-cell {
+    color: #8c7361; /* 갈색 톤으로 강조 */
+    font-weight: 500;
+}
+
+/* 비밀글 아이콘이나 답변 태그가 호버 시 더 잘 보이게 조정 */
+.qna-table tbody tr:hover .answer-tag {
+    color: #333;
+}
+/* 상위 공지사항 행 스타일 */
+.notice-row[style*="font-weight: bold"] {
+    border-left: 4px solid #8c7361; /* 왼쪽에 포인트 줄 주기 */
+}
+
+/* 호버 시 색상은 동일하게 유지하거나 조금 더 진하게 */
+.notice-row:hover {
+    background-color: #f7f3f0 !important;
+}
+/* ===== 상단 사용자 바 ===== */
+.top-user-bar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: rgba(255,255,255,0.9);
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    z-index: 100;
+}
+
+/* 프로필 이미지 */
+.top-profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #8c7361;
+}
+
+/* 이름 */
+.top-user-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 버튼 */
+.top-user-bar button {
+    border: none;
+    background: #8c7361;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.top-user-bar button:hover {
+    background: #6d5a47;
+}
+
+.page-num {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+/* hover 효과 */
+.page-num:hover {
+    background-color: var(--main-brown);
+    color: white;
+}
+
+
+

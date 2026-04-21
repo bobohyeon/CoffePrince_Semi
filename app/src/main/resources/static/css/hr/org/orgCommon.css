@@ -1,0 +1,367 @@
+/* =========================================================
+   인적자원관리 공통 스타일
+   - 조직관리 / 직원관리 / 근태관리 / 급여관리 공통 뼈대
+   - 페이지 전용 특수기능은 각 페이지 css에서 추가
+   ========================================================= */
+
+/* =========================================================
+   1. 페이지 기본 배경 / 여백
+   사용법:
+   <section class="page-content org-page ...">
+   ========================================================= */
+.org-page {
+    min-height: 100%;
+    padding: 26px 34px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #bcae8e 0%, #c8bba0 35%, #d9d4cb 100%);
+}
+
+/* 상단 비우는 여백
+   - HR 목록 화면들에서 공통 사용 */
+.org-top-spacer {
+    height: 44px;
+    margin-bottom: 18px;
+}
+
+/* =========================================================
+   2. 상단 탭
+   사용법:
+   .org-tab-area > .tab-btn
+   현재 탭은 .active
+   ========================================================= */
+.org-tab-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.tab-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    background-color: #f6f3ee;
+    color: #6a4b32;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tab-btn.active {
+    background-color: #b88d68;
+    color: #fff;
+}
+
+/* =========================================================
+   3. 요약 카드 영역
+   ========================================================= */
+.org-summary-area {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    width: 128px;
+    min-height: 86px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.summary-card-wide {
+    width: 210px;
+}
+
+.summary-title {
+    font-size: 12px;
+    color: #705843;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.summary-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #2e2118;
+    border-left: 4px solid #7b5538;
+    padding-left: 10px;
+    line-height: 1;
+}
+
+/* =========================================================
+   4. 목록 패널 / 툴바
+   ========================================================= */
+.org-table-card {
+    margin-top: 6px;
+    padding: 16px 18px 18px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.org-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.toolbar-left {
+    min-width: 0;
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+
+.toolbar-right .form-select {
+    height: 34px;
+    border-radius: 18px;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   5. HR 공통 테이블
+   사용법:
+   <table class="org-table ...">
+   ========================================================= */
+.org-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.org-table thead th {
+    background-color: #d2a980;
+    color: #4b3728;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 14px 10px;
+    text-align: center;
+}
+
+.org-table thead th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.org-table thead th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.org-table tbody td {
+    padding: 13px 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #57493d;
+    border-bottom: 1px solid #f0ece7;
+    vertical-align: middle;
+}
+
+.org-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 조회 결과 없음 행 */
+.org-table .empty-row td {
+    height: 120px;
+    text-align: center;
+    color: #9a8b7e;
+    font-size: 13px;
+}
+
+/* =========================================================
+   6. 하단 영역 / 페이지네이션 / 등록버튼
+   ========================================================= */
+.org-bottom-area {
+    position: relative;
+    margin-top: 18px;
+    min-height: 40px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.page-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.88);
+    color: #5a4636;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.page-btn.active {
+    background: #7b5538;
+    color: #fff;
+}
+
+.register-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* =========================================================
+   7. 공통 상세/수정 모달 틀
+   ========================================================= */
+.org-modal-wrap {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(30, 20, 10, 0.34);
+    z-index: 999;
+}
+
+.org-modal {
+    width: min(960px, 100%);
+    max-height: 90vh;
+    overflow: hidden;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+    display: flex;
+    flex-direction: column;
+}
+
+.org-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    border-bottom: 1px solid #ede6de;
+}
+
+.org-modal-header h2 {
+    font-size: 18px;
+    color: #4b3728;
+    font-weight: 800;
+}
+
+.modal-close-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #6c5442;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.org-modal-body {
+    padding: 20px 22px;
+    overflow-y: auto;
+}
+
+.org-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px 22px 20px;
+    border-top: 1px solid #ede6de;
+}
+
+/* 상세정보 줄 레이아웃 */
+.org-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+    margin-bottom: 18px;
+}
+
+.org-detail-item {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    border-radius: 10px;
+    background: #f8f5f1;
+    overflow: hidden;
+}
+
+.org-detail-label {
+    width: 120px;
+    min-width: 120px;
+    padding: 11px 12px;
+    background: #e7d7c6;
+    color: #5a4332;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.org-detail-value {
+    flex: 1;
+    padding: 11px 14px;
+    color: #433227;
+    font-size: 13px;
+}
+
+/* =========================================================
+   8. 반응형
+   ========================================================= */
+@media (max-width: 1400px) {
+    .org-table-card {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .org-top-spacer {
+        height: 20px;
+        margin-bottom: 14px;
+    }
+
+    .org-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toolbar-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto;
+        flex-wrap: wrap;
+    }
+
+    .org-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   6. 하단 영역 / 페이지네이션
+   ========================================================= */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+} 
